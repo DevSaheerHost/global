@@ -1,0 +1,331 @@
+/* Global styling */
+body {
+    font-family: Arial, sans-serif;
+    max-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+* {
+    box-sizing: border-box;
+    outline: none;
+    user-select: none; /* Prevent text selection */
+}
+
+/* Header styling */
+header {
+    background: #09a0ff;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header button {
+    border: none;
+    background: #fff;
+    border-radius: 1000px; /* Rounded button shape */
+    height: 36px;
+    width: 90px;
+    color: #09a0ff;
+    box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.24), -2px -3px 10px rgba(255, 255, 255, 0.24);
+    font-weight: 500;
+    transition: .2s;
+
+    &:active {
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.3);
+        color: #fff;
+    }
+}
+
+/* User information in header */
+header .user_info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+header .user_info .circle {
+    height: 40px;
+    width: 40px;
+    background: #f0f0f0;
+    border-radius: 500px;
+}
+
+header .user_info span {
+    font-size: 18px;
+}
+
+/* Chat container */
+.chat-container {
+    padding: 20px;
+    padding-top: 0;
+    overflow: auto; /* Enable scrolling for messages */
+    
+}
+
+/* Styling for chat messages */
+.chat-box {
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding: 16px;
+    border-bottom: 1px solid #ddd;
+    max-height: calc(100vh - 200px); /* Adjusted height for responsiveness */
+    height: calc(100vh - 140px);
+}
+
+.message {
+    padding: 10px;
+    position: relative;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+    margin: 10px 0;
+}
+
+.message {
+    text-align: right;
+    background-color: #007bff;
+    color: white;
+    animation: slideInUser 0.3s ease; /* Animation for user messages */
+}
+
+.message.AI {
+    text-align: left;
+    color: #555;
+    background-color: #f9f9f9;
+    animation: slideInAI 0.3s ease; /* Animation for AI messages */
+}
+
+.message.AI .timestamp {
+    font-size: 0.8em;
+    color: #888;
+    bottom: -15px;
+    right: 0;
+}
+
+.message .timestamp {
+    color: #C5C5C5;
+    font-size: 0.8em;
+}
+
+.message.ai .timestamp {
+    right: auto;
+    left: 0;
+}
+
+/* Input container for message input */
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    border-radius: 200px;
+    margin-top: 10px;
+    
+    
+}
+#user-input{
+  width: calc(100% - 80px);
+    padding: 12px;
+    border: none;
+    margin: 0;
+    border-radius: 0;
+    border-radius: 2000px;
+}
+#send-button {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px; /* Increased padding for better touch interaction */
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border-radius: 5000px;
+  
+}
+
+/* Date label styling */
+.date-label {
+    text-align: center;
+    background: #C5C5C5;
+    width: max-content;
+    margin: 10px auto;
+    padding: 4px 8px;
+    border-radius: 7px;
+    position: sticky;
+    top: -10px;
+    z-index: 3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .24);
+}
+
+/* Loading spinner */
+.loading {
+    background: #f0f0f0;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.loading .loader {
+    height: 50px;
+    width: 50px;
+    border-radius: 600px;
+    border: 3px solid #09a0ff;
+    animation: loader 0.5s ease-out infinite; /* Animation for loader */
+    
+    &:before{
+  content: "";
+  position: absolute;
+  height: 30px;
+  width: 9px;
+  background: #f0f0f0;
+  margin-left: -3px;
+}
+}
+
+@keyframes loader {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Popup container */
+.popup_container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.24);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+.popup {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 80%;
+    max-width: 500px;
+}
+
+.popup nav {
+    background: #e5e5e5;
+    color: #09a0ff;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.popup .container {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+}
+
+.popup .button_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1px;
+}
+
+.popup .button_wrapper span {
+    padding: 10px 20px;
+    background: #e5e5e5;
+    width: 100%;
+    text-align: center;
+}
+
+.popup .button_wrapper span.cancel {
+    background: #09a0ff;
+    color: #fff;
+}
+
+/* Login container */
+.login_container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+}
+
+.login_container .card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 20px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .24);
+}
+
+.card .input_group {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card .input_group input {
+    border: none;
+    padding: 6px 14px;
+    background: #f0f0f0;
+    border-radius: 40px;
+    font-size: 16px;
+    transition: .2s;
+}
+
+.card .input_group input:focus + label,
+.card .input_group input:valid + label {
+    transform: translateY(-55px);
+    font-size: 13px;
+}
+
+.card .input_group label {
+    transform: translateY(-33px);
+    margin-left: 10px;
+    color: #9a9a9a;
+    transition: .2s;
+    margin-top: 8px;
+}
+
+.card .btn_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-top: 8px;
+}
+
+.card .btn_wrapper button {
+    border: none;
+    height: 30px;
+    width: 80px;
+    border-radius: 680px;
+    text-align: center;
+    color: #fff;
+    font-size: 17px;
+    font-weight: 400;
+    background: #09a0ff;
+}
+
+/* Hidden class */
+.hidden {
+    display: none;
+}

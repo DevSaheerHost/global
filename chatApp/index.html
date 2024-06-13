@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chat App</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<body>
+  <header>
+    <div class="user_info">
+      <div class="circle"></div>
+      <span id="username">User</span>
+    </div>
+    <button id="clear-chat-button">Clear Chat</button>
+  </header>
+  
+  <div class="chat-container">
+    <div class="loading" id="loader">
+      <div class="loader"></div>
+    </div>
+    
+    <div id="popup_container" class="popup_container hidden">
+      <div class="popup">
+        <nav>Warning</nav>
+        <div class="container">
+          <span>Are you sure to clear the chat history?</span>
+        </div>
+        <div class="button_wrapper">
+          <span id="cancel" class="cancel">Cancel</span>
+          <span id="yes" class="yes">Yes</span>
+        </div>
+      </div>
+    </div>
+    
+    <div id="login_container" class="login_container login_btn">
+      <div class="card">
+        <h3>Login</h3>
+        <div class="input_group">
+          <input required type="text" name="name" id="name">
+          <label for="name">User name</label>
+          <input required type="tel" name="number" id="number">
+          <label for="number">Phone</label>
+          <div class="btn_wrapper">
+            <button id="login_btn" class="login">Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div id="chat-box" class="chat-box">
+       <!-- Messages will appear here -->
+    </div>
+    
+    <div class="input-container">
+      <input type="text" id="user-input" placeholder="Type your message here...">
+      <button id="send-button"><span class="material-symbols-outlined">send</span></button>
+    </div>
+  </div>
+  
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.0.0/firebase-database.js"></script>
+  
+  <script>
+    // Your Firebase config goes here
+    const firebaseConfig = {
+      apiKey: "AIzaSyCByon1pWuhoRTc-F3NXJD9uF3HcRWMFsA",
+      authDomain: "todolistformarcket.firebaseapp.com",
+      databaseURL: "https://todolistformarcket-default-rtdb.firebaseio.com",
+      projectId: "todolistformarcket",
+      storageBucket: "todolistformarcket.appspot.com",
+      messagingSenderId: "377052629282",
+      appId: "1:377052629282:web:1f2c16310a41b274b0fd7b"
+    };
+
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+  </script>
+  <script src="./main.js"></script>
+</body>
+</html>
