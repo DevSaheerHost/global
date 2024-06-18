@@ -124,13 +124,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const aiResponse = fixedResponses[userMessage.toLowerCase()];
             if (aiResponse) {
                 const aiTimestamp = timestamp + 1; // Ensure a unique timestamp
-                addMessage('AI', aiResponse, aiTimestamp);
+              //  addMessage('AI', aiResponse, aiTimestamp);
                 saveMessage('AI', aiResponse, aiTimestamp); // Save AI response to the database with a unique timestamp
             } else {
                 // Default response for unrecognized input
                 const defaultResponse = "I'm sorry, I didn't understand that.";
                 const aiTimestamp = timestamp + 1; // Ensure a unique timestamp
-                addMessage('AI', defaultResponse, aiTimestamp);
+              //  addMessage('AI', defaultResponse, aiTimestamp);
                 saveMessage('AI', defaultResponse, aiTimestamp); // Save default AI response to the database with a unique timestamp
             }
 
